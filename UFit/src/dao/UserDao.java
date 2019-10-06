@@ -1,0 +1,86 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+//import DbUtil;
+import model.*;
+import controller.*;
+
+import util.*;
+
+public class UserDao {
+
+	/**
+	 * This class handles the User objects and the login component of the web
+	 * app.
+	 */
+	static Connection currentCon = null;
+	static ResultSet rs = null;
+
+	public static User login(User user) {
+
+		/**
+		 * This method attempts to find the user that is trying to log in by
+		 * first retrieving the username and password entered by the user.
+		 */
+		Statement stmt = null;
+
+		String username = user.getUsername();
+		String password = user.getPassword();
+
+		/**
+		 * Prepare a query that searches the users table in the database
+		 * with the given username and password.
+		 */
+		String searchQuery = "select * from users where username='"
+				+ username + "' AND password='" + password + "'";
+
+		try {
+			// connect to DB
+			currentCon = DbUtil.getConnection();
+			stmt = currentCon.createStatement();
+			rs = stmt.executeQuery(searchQuery);
+			boolean more = rs.next();
+
+			/**
+			 * If there are no results from the query, set the user to false.
+			 * The person attempting to log in will be redirected to the home
+			 * page when isValid is false.
+			 */
+			
+			if (!more) {
+				user.setValid(false);
+			}
+
+			/**
+			 * If the query results in an database entry that matches the
+			 * username and password, assign the appropriate information to
+			 * the User object.
+			 */
+			else if (more) {
+				String firstname = rs.getString("firstname");
+				String lastname = rs.getString("lastname");
+
+				user.setFirstname(firstname);
+				user.setLastname(lastname);
+				user.setValid(true);
+			}
+		}
+
+		catch (Exception ex) {
+			System.out.println("Log In failed: An Exception has occurred! "
+					+ ex);
+		}
+		/**
+		 * Return the User object.
+		 */
+		return user;
+
+	}
+}
