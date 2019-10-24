@@ -4,7 +4,7 @@
 
 <html lang="en">
 <head>
-<title>UFit - Login</title>
+<title>MIE350 Sample Web App - Login</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -33,10 +33,9 @@
 				<!-- You can put left sidebar links here if you want to. -->
 			</div>
 			<div class="col-sm-8 text-left">
-				<h1>Login</h1>
+				<h1>Administrator Login</h1>
 
-<!-- sends the actions to LoginController -->
-				<form action="LoginController">
+				<form action="LoginController2">
 
 					Username: <input type="text" name="un" /><br> Password: <input
 						type="password" name="pw" /> <input type="submit"
@@ -47,7 +46,7 @@
 				For demonstration purposes, please use the following
 				credentials:
 				<ul>
-					<li><b>Username</b>: admin</li>
+					<li><b>Username</b>: admin (or admin2, admin3, admin4, admin5)</li>
 					<li><b>Password</b>: password</li>
 				</ul>
 			</div>

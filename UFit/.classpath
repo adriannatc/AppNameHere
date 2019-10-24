@@ -13,13 +13,13 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="S:/Courses/MIE350/DB_source/commons-lang-2.6.jar"/>
-	<classpathentry kind="lib" path="S:/Courses/MIE350/DB_source/commons-logging-1.1.1.jar"/>
-	<classpathentry kind="lib" path="S:/Courses/MIE350/DB_source/hsqldb.jar"/>
-	<classpathentry kind="lib" path="S:/Courses/MIE350/DB_source/jackcess-2.1.3.jar"/>
-	<classpathentry kind="lib" path="S:/Courses/MIE350/DB_source/javax.servlet.jar"/>
-	<classpathentry kind="lib" path="S:/Courses/MIE350/DB_source/jstl.jar"/>
-	<classpathentry kind="lib" path="S:/Courses/MIE350/DB_source/standard.jar"/>
-	<classpathentry kind="lib" path="S:/Courses/MIE350/DB_source/ucanaccess-3.0.6.jar"/>
+	<classpathentry kind="lib" path="//SRVA/Homes$/cuevasm1/Documents/newProject/DB_source/commons-lang-2.6.jar"/>
+	<classpathentry kind="lib" path="//SRVA/Homes$/cuevasm1/Documents/newProject/DB_source/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="//SRVA/Homes$/cuevasm1/Documents/newProject/DB_source/hsqldb.jar"/>
+	<classpathentry kind="lib" path="//SRVA/Homes$/cuevasm1/Documents/newProject/DB_source/jackcess-2.1.3.jar"/>
+	<classpathentry kind="lib" path="//SRVA/Homes$/cuevasm1/Documents/newProject/DB_source/javax.servlet.jar"/>
+	<classpathentry kind="lib" path="//SRVA/Homes$/cuevasm1/Documents/newProject/DB_source/jstl.jar"/>
+	<classpathentry kind="lib" path="//SRVA/Homes$/cuevasm1/Documents/newProject/DB_source/standard.jar"/>
+	<classpathentry kind="lib" path="//SRVA/Homes$/cuevasm1/Documents/newProject/DB_source/ucanaccess-3.0.6.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

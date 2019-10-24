@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Date;
+
 public class User {
 
 	private String  firstname;
@@ -13,9 +15,8 @@ public class User {
 	private boolean valid;
 	
 	//initialize empty user object
-//	public User(){
-//		this.valid = false;
-//	}
+	public User(){
+	}
 //	
 //	public User(int memberID, String firstname, String lastname, String username, String password, String emailAddress, String gymname, String postalCode, boolean valid) {
 //		

@@ -36,6 +36,7 @@
 			<div class="col-sm-8 text-left">
 
 				<h1>Invalid Login</h1>
+				Found username: <%= request.getParameter("un") %>
 
 				Please double-check your credentials and log in again.
 
