@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>uFIT login</title>
+	<title>uFIT<a href="index_loggedin.jsp"></a></title>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
@@ -12,29 +12,15 @@
 </head>
 <body>
 
- <%@ include file="navbar.jsp"%>
+<%@ include file="navbar_loggedin.jsp"%>
+ 
 
  <div class="container">
  	<div class="row">
  		<div class="col-lg-12">
  			<div class="content">
- 				<h1 style = "text-align: center">Sign-in</h1>
- 				 <div style="width: 30%; margin: 25px auto;">
- 			<form action="LoginController2">	 
-
-              <div class ="form-group">
-                 <input class = "form-control" type = "text" name="un" placeholder="Username">
-              </div>
-              <div class ="form-group">
-                  <input class = "form-control" type = "password" name="pw" placeholder="Password">
-              </div>
-              <div class = "form-group">
-                <input type ="submit" class = "btn btn-lg btn-primary btn-block" value="Enter">
-              </div>
-            </form>
-			
-				</div>
- 			
+ 				<h1>uFIT</h1>
+ 				<h3>Discover University of Toronto's fitness classes</h3>
  			</div>
  		</div>
  	</div>

@@ -4,24 +4,12 @@
 
 <html lang="en">
 <head>
-<title>UFit Invalid Login!</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <title>uFIT invalidlogin</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
-<!-- Date Picker Javascript -->
-<!-- https://jqueryui.com/datepicker/ -->
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-<link rel="stylesheet" type="text/css" href="css/mystyle.css">
+	<link rel="stylesheet" type="text/css" href="css/app.css">
 </head>
 <body>
 
@@ -36,7 +24,7 @@
 			<div class="col-sm-8 text-left">
 
 				<h1>Invalid Login</h1>
-				Found username: <%= request.getParameter("un") %>
+				
 
 				Please double-check your credentials and log in again.
 
@@ -47,7 +35,7 @@
 		</div>
 	</div>
 
-	<%@ include file="footer.jsp"%>
+	
 
 
 </body>

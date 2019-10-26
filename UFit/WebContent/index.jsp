@@ -1,68 +1,33 @@
-<!-- HOME PAGE -->
-
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
 <head>
-<title>UFit Website</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>uFIT<a href="index.jsp"></a></title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
-<!-- some css stuff -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<!-- Date Picker Javascript -->
-<!-- https://jqueryui.com/datepicker/ -->
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-<link rel="stylesheet" type="text/css" href="css/mystyle.css">
-
+	<link rel="stylesheet" type="text/css" href="css/app.css">
 </head>
 <body>
 
-	<%@ include file="navbar.jsp"%>
+<%@ include file="navbar.jsp"%>
+ 
 
+ <div class="container">
+ 	<div class="row">
+ 		<div class="col-lg-12">
+ 			<div class="content">
+ 				<h1>uFIT</h1>
+ 				<h3>Discover University of Toronto's fitness classes</h3>
+ 			</div>
+ 		</div>
+ 	</div>
+ </div>
 
-
-	<div class="container-fluid text-center">
-		<div class="row content">
-			<div class="col-sm-2 sidenav">
-				<!-- You can put left sidebar links here if you want to. -->
-			</div>
-			<div class="col-sm-8 text-left">
-				<h1>Welcome to the Homepage</h1>
-				<p>Description 
-					of team
-					here.</p>
-				<hr>
-				<h3>Internet Browsers</h3>
-				<p>This is a list:
-				<ul>
-					<li>item 1</li>
-					<li>item 2</li>
-					<li>Internet Explorer (or Microsoft Edge)</li>
-					<b> this is in bold</b>
-				</ul>
-				
-				</p>
-			</div>
-			<div class="col-sm-2 sidenav">
-				<!-- You can put right sidebar links here if you want to. -->
-			</div>
-		</div>
-	</div>
-
-	<%@ include file="footer.jsp"%>
+ <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
+ <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 
 </body>

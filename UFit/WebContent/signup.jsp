@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,34 +8,11 @@
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
-	<link rel="stylesheet" type="text/css" href="app.css">
+	<link rel="stylesheet" type="text/css" href="css/app.css">
 </head>
 <body >
 
- <nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">uFIT</a>
-    </div>
-    <div id="navbar" class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li><a href="classes.html">Classes</a></li>
-        <li><a href="#contact">My Account</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="signup.html">Signup  <i class="fa fa-user-plus"></i></a></li>
-        <li><a href="signin.html">Login  <i class="fa fa-user"></i></a></li>
-      </ul>
-    </div>
-  </div>
- </nav>
-
+<%@ include file="navbar.jsp"%>
  <div class="container">
  	<div class="row">
  		<div class="col-lg-12">
@@ -63,7 +42,7 @@
  			</div>
  		</div>
  	</div>
- </div>
+ </div></div>
 
  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
