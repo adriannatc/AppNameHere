@@ -67,7 +67,7 @@
   <!-- if you need to access the username firstname and last name, it is declared below -->
  
   <%
-		User user = (User) session.getAttribute("currentSessionUser");
+		Member user = (Member) session.getAttribute("currentSessionUser");
 
 		String username = (String) session.getAttribute("username");
 		String firstname = (String) session.getAttribute("firstname");

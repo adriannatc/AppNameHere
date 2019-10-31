@@ -23,7 +23,7 @@
  			<form action="LoginController2">	 
 
               <div class ="form-group">
-                 <input class = "form-control" type = "text" name="un" placeholder="Username YAS">
+                 <input class = "form-control" type = "text" name="un" placeholder="Username">
               </div>
               <div class ="form-group">
                   <input class = "form-control" type = "password" name="pw" placeholder="Password">
