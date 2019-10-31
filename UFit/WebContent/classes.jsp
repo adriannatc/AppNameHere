@@ -11,6 +11,7 @@
   <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
  <!--  <link rel="stylesheet" type="text/css" href="css/app.css"> -->
+ 
   <!-- Check to see if the user is logged in. Otherwise, redirect back to the login page.-->
 <%
 	session = request.getSession();
@@ -62,6 +63,9 @@
 <body>
 
   <%@ include file="navbar_loggedin.jsp"%>
+  
+  <!-- if you need to access the username firstname and last name, it is declared below -->
+ 
   <%
 		User user = (User) session.getAttribute("currentSessionUser");
 
@@ -70,6 +74,10 @@
 		String lastname = (String) session.getAttribute("lastname");
 	%>
 
+<!--  example of accessing names -->
+Hi <%=firstname %>! Here are classes we offer.
+
+<!-- back end needs to pass in the table of classes -->
 <input style="width:20%; margin-top:70px; margin-left:247px; border=0" align="center" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search class" title="Search">
 
  <table id="myTable" style="width:60%; margin-top:20px; margin-left:10px; border=0" align="center">

@@ -18,7 +18,7 @@ import dao.*;
  * This class handles the login servlet and assigns session attributes for users
  * who succesfully log into the system.
  */
-@WebServlet("/LoginController")
+@WebServlet("/LoginController2")
 public class LoginController extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -27,35 +27,35 @@ public class LoginController extends HttpServlet {
 		/**
 		 * Retrieve the entered username and password from the login.jsp form.
 		 */
-		User user = new User();
-		user.setUsername(request.getParameter("un"));
-		user.setPassword(request.getParameter("pw"));
+		Member member = new Member();
+		member.setUsername(request.getParameter("un"));
+		member.setPassword(request.getParameter("pw"));
 
 		try {
 			/**
-			 * Try to see if the user can log in.
+			 * Try to see if the member can log in.
 			 */
-			user = UserDao.login(user);
+			member = MemberDao.login(member);
 
 			/**
 			 * If the isValid value is true, assign session attributes to the
-			 * current user.
+			 * current member.
 			 */
-			if (user.isValid()) {
+			if (member.isValid()) {
 
 				HttpSession session = request.getSession(true);
-				session.setAttribute("currentSessionuser", user);
-				session.setAttribute("username", user.getUsername());
-				session.setAttribute("firstname", user.getFirstname());
-				session.setAttribute("lastname", user.getLastname());
+				session.setAttribute("currentSessionmember", member);
+				session.setAttribute("username", member.getUsername());
+				session.setAttribute("firstname", member.getFirstName());
+				session.setAttribute("lastname", member.getLastName());
 				/**
-				 * Redirect to the users-only home page.
+				 * Redirect to the members-only home page.
 				 */
-				response.sendRedirect("userLogged.jsp");
+				response.sendRedirect("memberLogged.jsp");
 
 				/**
 				 * Set a timeout variable of 900 seconds (15 minutes) for this
-				 * user who has logged into the system.
+				 * member who has logged into the system.
 				 */
 				session.setMaxInactiveInterval(900);
 			}
