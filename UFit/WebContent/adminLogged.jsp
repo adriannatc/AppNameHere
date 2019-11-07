@@ -15,12 +15,27 @@
 
 <head>
 <title>UFit Home Page</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!-- Date Picker Javascript -->
+<!-- https://jqueryui.com/datepicker/ -->
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <link rel="stylesheet" type="text/css" href="css/app.css">
 </head>
 <body>
 
-	<%@ include file="navbar_loggedin.jsp"%>
+	<%@ include file="admin_navbar_loggedin.jsp"%>
 
 	<%
 		Member member = (Member) session.getAttribute("currentSessionUser");
@@ -42,14 +57,15 @@
 				</h1>
 
 
-				Welcome to the users-only page.
+				Welcome to the members-only page.
 
-				<h2>Users-Only Features</h2>
-				Users can do the following:
+				<h2>Members-Only Features</h2>
+				Members can do the following:
 
 				<ul>
-					<li><b>Add</b> classes to your schedule</li>
-					<li><b>Delete</b> classes to your schedule</li>
+					<li><b>Add</b> classes</li>
+					<li><b>Delete</b> classes</li>
+					<li><b>Modify</b> class information</li>
 				</ul>
 
 

@@ -1,22 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR" import="model.*"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html lang="en">
-
-<!-- Check to see if the user is logged in. Otherwise, redirect back to the login page.-->
-<%
-	session = request.getSession();
-	System.out.println(session);
-	if (session.getAttribute("username") == null) {
-		response.sendRedirect("login.jsp");
-	}
-%>
-
 <head>
-<title>UFit Home Page</title>
+<title>Add A Class</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script
@@ -31,11 +24,11 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-<link rel="stylesheet" type="text/css" href="css/app.css">
+<link rel="stylesheet" type="text/css" href="css/mystyle.css">
 </head>
 <body>
 
-	<%@ include file="navbar_loggedin.jsp"%>
+	<%@ include file="admin_navbar_loggedin.jsp"%>
 
 	<%
 		Member member = (Member) session.getAttribute("currentSessionUser");
@@ -49,25 +42,29 @@
 		<div class="row content">
 			<%@ include file="sidebar_loggedin.jsp"%>
 			<div class="col-sm-8 text-left">
+				<h1>Add A Class</h1>
 
-				<h1>
-					Welcome,
-					<%=firstname%>
-					<%=lastname%>!
-				</h1>
+				<script>
+					$(function() {
+						$('input[name=gdate]').datepicker();
+					});
+				</script>
+				Note: the Class ID is a fixed field and cannot be changed. <br>
+				<br>
 
-
-				Welcome to the members-only page.
-
-				<h2>Members-Only Features</h2>
-				Members can do the following:
-
-				<ul>
-					<li><b>Add</b> classes</li>
-					<li><b>Delete</b> classes</li>
-					<li><b>Search</b> class information</li>
-				</ul>
-
+				<form method="POST" action='ClassController' name="frmAddUser">
+					Class ID*: <input type="text" readonly="readonly"
+						name="classid" value="<c:out value="${gclass.classid}" />"><br>
+					Category: <input type="text" name="category"
+						value="<c:out value="${gclass.category}" />"><br>
+					Location : <input type="text" name="location"
+						value="<c:out value="${gclass.location}" />"><br>Date
+					(MM/dd/yyyy): <input type="text" name="gdate"
+						value="<fmt:formatDate pattern="MM/dd/yyyy" value="${gclass.gdate}" />"><br>
+					Level: <input type="text" name="level"
+						value="<c:out value="${gclass.level}" />"><br> <br>
+					<input type="submit" class="btn btn-info" value="Submit" />
+				</form>
 
 			</div>
 			<div class="col-sm-2 sidenav">
@@ -76,7 +73,7 @@
 		</div>
 	</div>
 
-	
+	<%@ include file="footer.jsp"%>
 
 
 </body>

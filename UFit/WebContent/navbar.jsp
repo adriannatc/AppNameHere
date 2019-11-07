@@ -11,13 +11,14 @@
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-      <li><a href="#team">Team</a></li>
+      <li><a href="about.jsp">About and Team</a></li>
        <!-- <li><a href="classes.html">Classes</a></li> --> 
       <!-- <li><a href="#contact">My Account</a></li> -->  
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="signup.jsp">Signup  <i class="fa fa-user-plus"></i></a></li>
         <li><a href="login.jsp">Login  <i class="fa fa-user"></i></a></li>
+         <li><a href="Adminlogin.jsp">Admin Login  <i class="fa fa-user"></i></a></li>
       </ul>
     </div>
   </div>

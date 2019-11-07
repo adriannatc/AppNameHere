@@ -20,7 +20,7 @@
  			<div class="content">
  				<h1 style = "text-align: center">Sign-in</h1>
  				 <div style="width: 30%; margin: 25px auto;">
- 			<form action="LoginController2">	 
+ 			<form action="LoginController">	 
 
               <div class ="form-group">
                  <input class = "form-control" type = "text" name="un" placeholder="Username">
@@ -34,7 +34,13 @@
             </form>
 			
 				</div>
- 			
+ 			<br/>
+            For demonstration purposes, please use the following
+				credentials:
+				<ul>
+					<li><b>Username</b>: member (or member2, member3, member4, member5)</li>
+					<li><b>Password</b>: password</li>
+				</ul>
  			</div>
  		</div>
  	</div>

@@ -17,7 +17,7 @@
  	<div class="row">
  		<div class="col-lg-12">
  			<div class="content">
- 				<h1 style = "text-align: center">Sign-up</h1>
+ 				<h1 style = "text-align: center">Sign-up - STILL UNDER CONSTRUCTION</h1>
  				 <div style="width: 30%; margin: 25px auto;">
             <form> 
               <div class ="form-group">
