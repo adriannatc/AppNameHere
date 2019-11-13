@@ -150,37 +150,42 @@ public class ClassDao {
 
 		return gclass;
 	}
+	public List<Class> getClassByKeyword(String keyword) {
+		// This method gets a list of classes that matches the keyword entered
 
-//	public List<Class> getClassByKeyword(String keyword) {
-//		// This method gets a list of classes that matchhes the keyword entered
-//
-//		List<Class> classes = new ArrayList<Class>();
-//		try {
-//			PreparedStatement preparedStatement = connection
-//					.prepareStatement("select * from classes where category LIKE ? OR trainerName LIKE ? OR trainerGender LIKE ? OR classDescription LIKE ? OR level LIKE ? OR rating LIKE ?");
-//
-//			preparedStatement.setString(1, "%" + keyword + "%");
-//			preparedStatement.setString(2, "%" + keyword + "%");
-//			preparedStatement.setString(3, "%" + keyword + "%");
-//			preparedStatement.setString(4, "%" + keyword + "%");
-//			preparedStatement.setString(5, "%" + keyword + "%");
-//			preparedStatement.setString(6, "%" + keyword + "%");
-//			ResultSet rs = preparedStatement.executeQuery();
-//			while (rs.next()) {
-//				Class gclass = new Class();
-//				gclass.setCategory(rs.getString("category"));
-//				gclass.setTrainerName(rs.getString("trainerName"));
-//				gclass.setTrainerGender(rs.getString("trainerGender"));
-//				gclass.setClassDescription(rs.getString("classDescription"));
-//				gclass.setLevel(rs.getString("level"));
-//				gclass.setRating(rs.getString("rating"));
-//				classes.add(gclass);
-//			}
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//
-//		return classes;
-//	}
+		List<Class> classes = new ArrayList<Class>();
+		try {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("select * from classes where category LIKE ? OR level LIKE ? OR location LIKE ? OR gdate LIKE ?");
+
+			//this format doesnt work
+//			preparedStatement.setString(1, "'%" + keyword + "%'");
+//			preparedStatement.setString(2, "'%" + keyword + "%'");
+//			preparedStatement.setString(3, "'%" + keyword + "%'");
+//			preparedStatement.setString(4, "'%" + keyword + "%'");
+			//preparedStatement.setString(5, "%" + keyword + "%");
+			preparedStatement.setString(1, "'" + keyword + "'");
+			preparedStatement.setString(2, "'" + keyword + "'");
+			preparedStatement.setString(3, "'" + keyword + "'");
+			preparedStatement.setString(4, "'" + keyword + "'");
+			ResultSet rs = preparedStatement.executeQuery();
+			while (rs.next()) {
+				Class gclass = new Class();
+				gclass.setClassid(rs.getInt("classid"));
+				gclass.setCategory(rs.getString("category"));
+				gclass.setLevel(rs.getString("level"));
+				gclass.setLocation(rs.getString("location"));
+				gclass.setGdate(rs.getDate("gdate"));
+		
+			//	gclass.setTime(rs.getString("time"));
+				classes.add(gclass);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return classes;
+	}
+
 
 }

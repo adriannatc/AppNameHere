@@ -50,7 +50,7 @@
 		
 			<div class="col-sm-8 text-left">
 			<h2>All Classes</h2>
-				<h1>All Classes In DB - CURRENTLY UNDER CONSTRUCTION , need to change data to gym classes in stead of students</h1>
+				<h1>All Classes In DB</h1>
 
 				The time is now <b><%=new java.util.Date()%></b>.<br> <br>
 				<a class="btn btn-primary" href="ClassController?action=insert">Add
