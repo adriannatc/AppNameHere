@@ -157,18 +157,13 @@ public class ClassDao {
 		try {
 			PreparedStatement preparedStatement = connection
 					.prepareStatement("select * from classes where category LIKE ? OR level LIKE ? OR location LIKE ? OR gdate LIKE ?");
-
-			//this format doesnt work
-//			preparedStatement.setString(1, "'%" + keyword + "%'");
-//			preparedStatement.setString(2, "'%" + keyword + "%'");
-//			preparedStatement.setString(3, "'%" + keyword + "%'");
-//			preparedStatement.setString(4, "'%" + keyword + "%'");
-			//preparedStatement.setString(5, "%" + keyword + "%");
-			preparedStatement.setString(1, "'" + keyword + "'");
-			preparedStatement.setString(2, "'" + keyword + "'");
-			preparedStatement.setString(3, "'" + keyword + "'");
-			preparedStatement.setString(4, "'" + keyword + "'");
+			
+			preparedStatement.setString(1, "%" + keyword + "%");
+			preparedStatement.setString(2, "%" + keyword + "%");
+			preparedStatement.setString(3, "%" + keyword + "%");
+			preparedStatement.setString(4, "%" + keyword + "%");
 			ResultSet rs = preparedStatement.executeQuery();
+			System.out.println(preparedStatement);
 			while (rs.next()) {
 				Class gclass = new Class();
 				gclass.setClassid(rs.getInt("classid"));

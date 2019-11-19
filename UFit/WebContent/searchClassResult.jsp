@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html lang="en">
@@ -35,7 +39,8 @@
 				<!-- You can put left sidebar links here if you want to. -->
 			</div>
 			<div class="col-sm-8 text-left">
-				<h1>Search A CLass - Results</h1>
+				<h2> Classes</h2>
+				<h1>Search A Class - Results</h1>
 
 				The following classes match your search keyword "<b><font
 					color=red><%=request.getAttribute("keyword")%></font></b>":<br> <br>
@@ -46,8 +51,10 @@
 								<th>Class Id</th>
 								<th>Category</th>
 								<th>Level</th>
+								<th>Location</th>
 								<th>Date</th>
 								<!-- Time -->
+								<th colspan=2>Action</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -61,8 +68,10 @@
 									<td align="center"><c:out value="${gclass.getLocation()}" /></td>
 									<td align="center"><fmt:formatDate pattern="yyyy-MMM-dd"
 											value="${gclass.getGdate()}" /></td>
-									<td align="center"><c:out value="${gclass.getTime()}" /></td>
-								</tr>
+									<td align="center"><a class="btn btn-primary"
+									href="ClassController?action=memberAdd&gclassId=<c:out value="${gclass.getClassid()}"/>">Add (doesn't work yet)</a></td>
+								
+									</tr>
 							</c:forEach>
 						</tbody>
 					</table>

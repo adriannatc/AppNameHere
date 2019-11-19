@@ -42,7 +42,7 @@ public class SearchController extends HttpServlet {
 		request.setAttribute("gclasses", dao.getClassByKeyword(keyword));
 		
 		/**
-		 * Redirect to the search results page after the list of students
+		 * Redirect to the search results page after the list of classes
 		 * matching the keywords has been retrieved.
 		 */
 

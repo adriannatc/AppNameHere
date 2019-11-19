@@ -35,6 +35,7 @@
 				<!-- You can put left sidebar links here if you want to. -->
 			</div>
 			<div class="col-sm-8 text-left">
+				<h2> Classes</h2>
 				<h1>Search A Class</h1>
 
 				Type in any keyword to search for class information (category,

@@ -53,9 +53,10 @@
 				<h1>All Classes In DB</h1>
 
 				The time is now <b><%=new java.util.Date()%></b>.<br> <br>
+				
 				<a class="btn btn-primary" href="ClassController?action=insert">Add
 					A New Class</a> <br /> <br /> The following <B><c:out
-						value="${gclasses.size()}" /> classes</B> are in your database (you can click on the table headings to sort the classes): <br>
+						value="${gclasses.size()}" /> classes</B> are in your database: <br>
 				<br>
 				<table border=1 class="sortable">
 					<thead>
@@ -67,6 +68,7 @@
 							<th>Level</th>
 							<th colspan=2>Action</th>
 						</tr>
+						
 					</thead>
 					<tbody>
 						<c:forEach items="${gclasses}" var="gclass">
