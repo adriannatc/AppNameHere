@@ -11,9 +11,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.ClassDao;
 import model.Class;
+import model.Member;
 
 @WebServlet("/ClassController")
 public class ClassController extends HttpServlet {
@@ -32,11 +34,12 @@ public class ClassController extends HttpServlet {
 	private static String EDIT = "/admineditClass.jsp";
 	private static String LIST_CLASS_PUBLIC = "/listClassPublic.jsp";
 	private static String LIST_CLASS_ADMIN = "/adminlistClass.jsp";
-	private static String SEARCH_CLASS = "/searchClass.jsp";
+	private static String LIST_MY_CLASSES = "/myAccount.jsp";
+	
 	
 
 	private ClassDao dao;
-
+	
 	/**
 	 * Constructor for this gclass.
 	 */
@@ -59,8 +62,12 @@ public class ClassController extends HttpServlet {
 		 * database. - listClassAdmin will direct the servlet to the admin
 		 * listing of all gclasss in the database.
 		 */
+
+		
 		String forward = "";
 		String action = request.getParameter("action");
+		//get session to access member id
+		HttpSession session = request.getSession(true);
 
 		if (action.equalsIgnoreCase("delete")) {
 			int gclassId = Integer.parseInt(request.getParameter("gclassId"));
@@ -81,8 +88,23 @@ public class ClassController extends HttpServlet {
 			forward = LIST_CLASS_ADMIN;
 			request.setAttribute("gclasses", dao.getAllClasses());
 		}else if (action.equalsIgnoreCase("memberAdd")){
-			forward = SEARCH_CLASS;
-		} else {
+			forward = LIST_MY_CLASSES;
+			int gclassId = Integer.parseInt(request.getParameter("gclassId"));
+			int memberId = (Integer) session.getAttribute("memberid");
+			dao.addMyClass(gclassId,memberId);
+			request.setAttribute("myclasses", dao.getMyClasses(memberId));
+			
+		} else if(action.equalsIgnoreCase("memberDelete")){
+			forward = LIST_MY_CLASSES;
+			int gclassId = Integer.parseInt(request.getParameter("gclassId"));
+			int memberId = (Integer) session.getAttribute("memberid");
+			dao.deleteMyClass(gclassId, memberId);
+			request.setAttribute("myclasses", dao.getMyClasses(memberId));
+		}else if(action.equalsIgnoreCase("memberList")){
+			forward = LIST_MY_CLASSES;
+			int memberId = (Integer) session.getAttribute("memberid");
+			request.setAttribute("myclasses", dao.getMyClasses(memberId));
+		}else {
 			forward = INSERT;
 		}
 

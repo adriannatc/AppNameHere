@@ -1,6 +1,4 @@
-/*
- * THIS CAN BE OUR ADD CLASS FUNCTION
- */
+
 
 
 package dao;
@@ -150,6 +148,66 @@ public class ClassDao {
 
 		return gclass;
 	}
+	public void addMyClass(int gclassid, int memberid){
+		/*
+		 * This method adds a chosen class to a member's personal list
+		 * 
+		 */
+		try {
+			
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("insert into myClasses(MemberId, classid) values (?, ?)");
+			// Parameters start with 1
+			preparedStatement.setInt(1, memberid);
+			preparedStatement.setInt(2, gclassid);
+			preparedStatement.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
+	
+	public void deleteMyClass(int gclassid,int memberid){
+		/**
+		 * This method deletes a gclass from the personal list.
+		 */
+		try {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("delete from myClasses where MemberId=? AND classid=?");
+			// Parameters start with 1
+			preparedStatement.setInt(1, memberid);
+			preparedStatement.setInt(2, gclassid);
+			preparedStatement.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public List<Class> getMyClasses(int memberid){
+		/**
+		 * This method returns the list of all myClasses in the form of a List
+		 * object.
+		 */
+		List<Class> gclasses = new ArrayList<Class>();
+		try {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("select * from myClasses where MemberId=?");
+			preparedStatement.setInt(1, memberid);
+			ResultSet rs = preparedStatement.executeQuery();
+			while (rs.next()) {
+				Class gclass= getClassById(rs.getInt("classid"));
+				gclasses.add(gclass);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return gclasses;
+	}
+	
 	public List<Class> getClassByKeyword(String keyword) {
 		// This method gets a list of classes that matches the keyword entered
 

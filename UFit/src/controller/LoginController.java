@@ -48,6 +48,7 @@ public class LoginController extends HttpServlet {
 				session.setAttribute("username", member.getUsername());
 				session.setAttribute("firstname", member.getFirstName());
 				session.setAttribute("lastname", member.getLastName());
+				session.setAttribute("memberid", member.getid());
 				/**
 				 * Redirect to the members-only home page.
 				 */

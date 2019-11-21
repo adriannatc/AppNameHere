@@ -11,7 +11,6 @@ import java.util.List;
 import util.DbUtil;
 import model.*;
 import controller.*;
-
 import util.*;
 
 public class MemberDao {
@@ -66,9 +65,12 @@ public class MemberDao {
 			else if (more) {
 				String firstName = rs.getString("FirstName");
 				String lastName = rs.getString("LastName");
+				int memberid = Integer.parseInt(rs.getString("MemberID"));
 
 				member.setFirstName(firstName);
 				member.setLastName(lastName);
+				System.out.println("MEMBER DAO: "+ memberid);
+				member.setid(memberid);
 				member.setValid(true);
 			}
 		}

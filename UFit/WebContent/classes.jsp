@@ -59,20 +59,21 @@
 }
 </style>
 </head>
+	<%
+		Member member = (Member) session.getAttribute("currentSessionUser");
 
+		String username = (String) session.getAttribute("username");
+		String firstname = (String) session.getAttribute("firstname");
+		String lastname = (String) session.getAttribute("lastname");
+		//int memberid = (Integer) session.getAttribute("memberid");
+	%>
 <body>
 
   <%@ include file="navbar_loggedin.jsp"%>
   
   <!-- if you need to access the username firstname and last name, it is declared below -->
  
-  <%
-		Member user = (Member) session.getAttribute("currentSessionUser");
-
-		String username = (String) session.getAttribute("username");
-		String firstname = (String) session.getAttribute("firstname");
-		String lastname = (String) session.getAttribute("lastname");
-	%>
+ 
 
 <!--  example of accessing names -->
 Hi <%=firstname %>! Here are classes we offer.

@@ -18,9 +18,6 @@
 
 <link rel="stylesheet" type="text/css" href="css/app.css">
 </head>
-<body>
-
-	<%@ include file="navbar_loggedin.jsp"%>
 
 	<%
 		Member member = (Member) session.getAttribute("currentSessionUser");
@@ -28,7 +25,13 @@
 		String username = (String) session.getAttribute("username");
 		String firstname = (String) session.getAttribute("firstname");
 		String lastname = (String) session.getAttribute("lastname");
+		//int memberid = (Integer) session.getAttribute("memberid");
 	%>
+<body>
+
+	<%@ include file="navbar_loggedin.jsp"%>
+
+	
 
 	<div class="container-fluid text-center">
 		<div class="row content">

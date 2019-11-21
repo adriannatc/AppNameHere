@@ -1,60 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR" import="model.*"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<%
-	session = request.getSession();
-	System.out.println(session);
-	if (session.getAttribute("username") == null) {
-		response.sendRedirect("login.jsp");
-	}
-%>
 
+<html lang="en">
 <head>
+<title>My Account</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-  <title>uFIT<a href="index.html"></a></title>
-  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-  <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+<!-- Date Picker Javascript -->
+<!-- https://jqueryui.com/datepicker/ -->
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-
-
-#myTable {
-  border-collapse: collapse;
-  width: 10%;
-  border: 1px solid #ddd;
-  font-size: 18px;
-}
-
-#myTable th, #myTable td {
-  text-align: left;
-  padding: 12px;
-}
-
-#myTable tr {
-  border-bottom: 1px solid #ddd;
-}
-
-#myTable tr.header, #myTable tr:hover {
-  background-color: #f1f1f1;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="css/mystyle.css">
 </head>
-
-
-<body>
-
-<%@ include file="navbar_loggedin.jsp"%>
-
-<%
+	<%
 		Member member = (Member) session.getAttribute("currentSessionUser");
 
 		String username = (String) session.getAttribute("username");
 		String firstname = (String) session.getAttribute("firstname");
 		String lastname = (String) session.getAttribute("lastname");
 	%>
+
+<body>
+
+	<%@ include file="navbar_loggedin.jsp"%>
 
 <div class="card" margin-top="70px" margin-left="1000">
   <img src="john.PNG" alt="John" style="width:10%" >
@@ -65,37 +47,42 @@
   <p><button>Edit Info</button></p>
 </div>
 
-<input style="width:20%; margin-top:70px; margin-left:247px; border=0" align="center" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search class" title="Search">
+Here are your classes!
+	<br>
+				<table border=1 class="sortable">
+					<thead>
+						<tr>
+							<th>Class Id</th>
+							<th>Category</th>
+							<th>Location</th>
+							<th>Date</th>
+							<th>Level</th>
+							<th colspan=2>Action</th>
+						</tr>
+						
+					</thead>
+					<tbody>
+					
+						<c:forEach items="${myclasses}" var="gclass">
+					
+							<tr>
+								<td align="center"><c:out value="${gclass.getClassid()}" /></td>
+								<td align="center"><c:out value="${gclass.getCategory()}" /></td>
+								<td align="center"><c:out value="${gclass.getLocation()}" /></td>
+								<td align="center"><fmt:formatDate pattern="yyyy-MMM-dd"
+										value="${gclass.getGdate()}" /></td>
+								<td align="center"><c:out value="${gclass.getLevel()}" /></td>
+								<td align="center"><a class="btn btn-danger"
+									href="ClassController?action=memberDelete&gclassId=<c:out value="${gclass.getClassid()}"/>">Delete</a></td>
+							
+								</tr>
+						</c:forEach>
+					</tbody>
+				</table>
 
- <table id="myTable" style="width:60%; margin-top:20px; margin-left:10px; border=0" align="center">
-  <tr class="header">
-    <th style="width:20%;">Class</th>
-    <th style="width:20%;">Level</th>
-    <th style="width:40%;">Location</th>
-    <th style="width:60%;">Date/Time</th>
-  </tr>
-  <tr>
-    <td>Weightlifting</td>
-    <td>Beginner</td>
-    <td>Harthouse Upper Gym</td>
-    <td>October 29th, 2:00PM</td>
-  </tr>
-  <tr>
-    <td>Tennis</td>
-    <td>Advanced</td>
-    <td>Athletic Centre Upper Gym</td>
-    <td>October 30th, 2:00PM</td>
-  </tr>
-  <tr>
-    <td>Yoga</td>
-    <td>Intermediate</td>
-    <td>Goldring Lower Gym</td>
-    <td>October 30th, 2:00PM</td>
-  </tr>
-</table>
 
 
-
+				<br />
 
  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
