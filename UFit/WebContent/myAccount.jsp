@@ -45,6 +45,7 @@
   <p class="title"><%=firstname %> <%=lastname %></p>
   <p>3rd-year Industrial Engineering</p>
   <p><button>Edit Info</button></p>
+  <p><button>Delete Account</button></p>
 </div>
 
 Here are your classes!

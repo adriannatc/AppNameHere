@@ -35,7 +35,8 @@ public class ClassController extends HttpServlet {
 	private static String LIST_CLASS_PUBLIC = "/listClassPublic.jsp";
 	private static String LIST_CLASS_ADMIN = "/adminlistClass.jsp";
 	private static String LIST_MY_CLASSES = "/myAccount.jsp";
-	
+	private static String SEARCH_CLASS = "/searchClassResult.jsp";
+	private static String LIST_GCLASSES = "/searchClass.jsp";
 	
 
 	private ClassDao dao;
@@ -88,6 +89,7 @@ public class ClassController extends HttpServlet {
 			forward = LIST_CLASS_ADMIN;
 			request.setAttribute("gclasses", dao.getAllClasses());
 		}else if (action.equalsIgnoreCase("memberAdd")){
+			//forward = SEARCH_CLASS;
 			forward = LIST_MY_CLASSES;
 			int gclassId = Integer.parseInt(request.getParameter("gclassId"));
 			int memberId = (Integer) session.getAttribute("memberid");
@@ -104,6 +106,9 @@ public class ClassController extends HttpServlet {
 			forward = LIST_MY_CLASSES;
 			int memberId = (Integer) session.getAttribute("memberid");
 			request.setAttribute("myclasses", dao.getMyClasses(memberId));
+		}else if(action.equalsIgnoreCase("gclasslist")){
+			request.setAttribute("gclasses", dao.getAllClasses());
+			forward = LIST_GCLASSES;
 		}else {
 			forward = INSERT;
 		}

@@ -19,6 +19,7 @@ public class SearchController extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	private static String SEARCH_CLASS = "/searchClassResult.jsp";
+	
 	private ClassDao dao;
 	
 	//constructor for this class
@@ -32,13 +33,18 @@ public class SearchController extends HttpServlet {
 		// search for the keyword entered by the user
 		 
 		String keyword = request.getParameter("keyword");
+		
+		HttpSession session =request.getSession();
+		session.setAttribute("keyword",keyword);
 
 		RequestDispatcher view = request.getRequestDispatcher(SEARCH_CLASS);
 		request.setAttribute("keyword", keyword);
 		
 		//NAZ this is line prints the classes in the list being returned. right now it is always empty
 		System.out.println("Classes being returned by keyword");
+		
 		System.out.println(dao.getClassByKeyword(keyword));
+		
 		request.setAttribute("gclasses", dao.getClassByKeyword(keyword));
 		
 		/**

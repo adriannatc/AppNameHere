@@ -51,6 +51,11 @@
 				<h2> Classes</h2>
 				<h1>Search A Class - Results</h1>
 
+
+		<%
+		String keyword2 = (String) session.getAttribute("keyword");
+		%>
+				Key word from session: <%= session.getAttribute("keyword") %>
 				The following classes match your search keyword "<b><font
 					color=red><%=request.getAttribute("keyword")%></font></b>":<br> <br>
 				<center>
@@ -62,7 +67,6 @@
 								<th>Level</th>
 								<th>Location</th>
 								<th>Date</th>
-								<!-- Time -->
 								<th colspan=2>Action</th>
 							</tr>
 						</thead>
