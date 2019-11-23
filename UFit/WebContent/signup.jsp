@@ -33,9 +33,12 @@
                   <input class = "form-control" type = "password" password="Password" placeholder="Password">
               </div>
               <div class ="form-group">
-                  <input class = "form-control" type = "confirm password" password="Confirm Password" placeholder="Confirm Password">
+                  <input class = "form-control" type = "confirm password" password="pw" placeholder="Confirm Password">
               </div>
               <div class = "form-group">
+                <input class = "form-control" type = "username" username="un" placeholder="UserName">
+              </div>
+               <div class = "form-group">
                 <button class = "btn btn-lg btn-primary btn-block">Enter</button>
               </div>
             </form>

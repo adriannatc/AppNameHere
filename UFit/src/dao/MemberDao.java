@@ -10,6 +10,7 @@ import java.util.List;
 
 import util.DbUtil;
 import model.*;
+import model.Class;
 import controller.*;
 import util.*;
 
@@ -21,7 +22,32 @@ public class MemberDao {
 	 */
 	static Connection currentCon = null;
 	static ResultSet rs = null;
+	
+	public void addMember(Member member) {
+		/** edit for the member method
+		 * 
+		 */
+		try {
+		
+			PreparedStatement preparedStatement = connection
+			.prepareStatement("insert into Member(username,FirstName,LastName,Password,email) values (?, ?, ?, ?, ?)");
+			// Parameters start with 1
+			preparedStatement.setString(1, member.getFirstName());
+			preparedStatement.setString(2, member.getLastName());
+			preparedStatement.setString(3, member.getUsername());
+			preparedStatement.setString(4, member.getPassword());
+			preparedStatement.setString(1, member.getEmail());
+			preparedStatement.setInt(2, member.getid());
+			preparedStatement.executeUpdate();
 
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	
+	
 	public static Member login(Member member) {
 
 		/**

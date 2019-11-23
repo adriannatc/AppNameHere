@@ -1,7 +1,11 @@
 package controller;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.*;
+import model.Class;
 import dao.*;
 
 /**
@@ -77,4 +82,44 @@ public class LoginController extends HttpServlet {
 			System.out.println(theException);
 		}
 	}
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+
+		/**
+		 * This method retrieves all of the information entered in the form on
+		 * the addClass.jsp or the editClass.jsp pages.
+		 */
+		Member member = new Member();
+		member.setUsername(request.getParameter("un"));
+		member.setPassword(request.getParameter("pw"));
+		/** Set the fn, ln, email here too 
+		 * 
+		 */
+		try {
+			/** try to sign up the user
+			 * 
+			 */
+			Memberusername = new SimpleDateFormat("username").parse(request
+					.getParameter("un"));
+			member.setUsername();
+		} catch (ParseException e) {
+			e.printStackTrace();
+		
+		
+		if (Memberusername == null || MemberUsername.isEmpty()) {
+			dao.addMember(member);
+		} else {
+			/**
+			 * Otherwise, if the field is already filled (this occurs when the
+			 * user is trying to Edit A Class), then the gclass's information
+			 * will be updated accordingly.
+			 */
+			member.setClassid(Integer.parseInt(memberid));
+			dao.updateMember(member);
+		}
+		/**
+		 * Once the members has been added or updated
+		 */
+		}
+}
 }
