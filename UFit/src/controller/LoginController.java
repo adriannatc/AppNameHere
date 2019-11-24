@@ -2,12 +2,17 @@ package controller;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import net.ucanaccess.jdbc.UcanaccessSQLException;
+
+import com.healthmarketscience.jackcess.ConstraintViolationException;
 
 import model.*;
 import dao.*;
@@ -18,9 +23,21 @@ import dao.*;
  * This class handles the login servlet and assigns session attributes for users
  * who succesfully log into the system.
  */
+
+
 @WebServlet("/LoginController")
 public class LoginController extends HttpServlet {
+	private MemberDao dao;
 
+	private static final long serialVersionUID = 1L;
+	private static String HOME = "/index.jsp";
+	private static String invalidUsername = "/invalidUsername.jsp";
+	
+	public LoginController() {
+	    super();
+	    dao = new MemberDao();
+	}
+	
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, java.io.IOException {
 
@@ -77,4 +94,50 @@ public class LoginController extends HttpServlet {
 			System.out.println(theException);
 		}
 	}
+	
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		String forward = "";
+		/**
+		 * This method retrieves all of the information entered in the form on
+		 * signup.jsp
+		 */
+		Member member = new Member();
+		member.setFirstName(request.getParameter("firstName"));
+		member.setLastName(request.getParameter("lastName"));
+		member.setEmail(request.getParameter("email"));
+		member.setUsername(request.getParameter("username"));
+		member.setPassword(request.getParameter("password"));
+		String memberid = request.getParameter("memberid");
+		
+		if (memberid == null || memberid.isEmpty()) {
+			try{
+				dao.addMember(member);
+			}catch(SQLException e){
+				forward =invalidUsername;
+			}
+			
+		} else {
+			/**
+			 * Otherwise, if the field is already filled (this occurs when the
+			 * user is trying to Edit A Member), then the member's information
+			 * will be updated accordingly.
+			 */
+			member.setid(Integer.parseInt(memberid));
+			System.out.println("\nMember: " +memberid);
+			dao.updateMember(member);
+			forward = HOME;
+		}
+		/**
+		 * Once the members has been added or updated
+		 */
+		RequestDispatcher view = request
+				.getRequestDispatcher(forward);
+		view.forward(request, response);
+	}
+	
+
 }

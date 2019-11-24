@@ -43,9 +43,10 @@
 	<h4> .</h4> 
   <h1>                        Welcome <%=firstname%>, here are your chosen classes!</h1>
   <p class="title"><%=firstname %> <%=lastname %></p>
-  <p>3rd-year Industrial Engineering</p>
-  <p><button>Edit Info</button></p>
-  <p><button>Delete Account</button></p>
+  
+  
+  <td align="center"><a class="btn btn-info" href="LoginController?action=accountEdit"/>Edit Account</a></td>
+  <td align="center"><a class="btn btn-danger" href="LoginController?action=accountDelete">Delete Account</a></td>
 </div>
 
 Here are your classes!
@@ -73,7 +74,7 @@ Here are your classes!
 								<td align="center"><fmt:formatDate pattern="yyyy-MMM-dd"
 										value="${gclass.getGdate()}" /></td>
 								<td align="center"><c:out value="${gclass.getLevel()}" /></td>
-								<td align="center"><a class="btn btn-danger"
+								<td align="center"><a class="btn btn-warning"
 									href="ClassController?action=memberDelete&gclassId=<c:out value="${gclass.getClassid()}"/>">Delete</a></td>
 							
 								</tr>

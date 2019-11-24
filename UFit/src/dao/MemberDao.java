@@ -10,6 +10,7 @@ import java.util.List;
 
 import util.DbUtil;
 import model.*;
+import model.Class;
 import controller.*;
 import util.*;
 
@@ -22,6 +23,64 @@ public class MemberDao {
 	static Connection currentCon = null;
 	static ResultSet rs = null;
 
+	public MemberDao() {
+		/**
+		 * Get the database connection.
+		 */
+		currentCon = DbUtil.getConnection();
+	}
+	
+
+	
+	public void addMember(Member member) {
+		/** edit for the member method
+		 * 
+		 */
+		
+		System.out.println("in add Member class");
+		try {
+			PreparedStatement preparedStatement = currentCon
+			.prepareStatement("insert into members(FirstName,LastName,Email,Username,Password) values (?, ?, ?, ?, ?)");
+			// Parameters start with 1
+			preparedStatement.setString(1, member.getFirstName());
+			preparedStatement.setString(2, member.getLastName());
+			preparedStatement.setString(3, member.getEmail());
+			preparedStatement.setString(4, member.getUsername());
+			preparedStatement.setString(5, member.getPassword());
+
+			preparedStatement.executeUpdate();
+
+		
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void updateMember(Member member) {
+		/**
+		 * This method updates a gclass's information into the database.
+		 */
+		
+		System.out.println("*****update Class: "+member.getid());
+		try {
+			PreparedStatement preparedStatement = currentCon
+					.prepareStatement("update members set FirstName=?, LastName=?, Email=?"
+							+ " where memberid=?");
+			// Parameters start with 1
+			preparedStatement.setString(1, member.getFirstName());
+			preparedStatement.setString(2, member.getLastName());
+			preparedStatement.setString(3, member.getEmail());
+			preparedStatement.setInt(5, member.getid());
+			preparedStatement.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	
+	
 	public static Member login(Member member) {
 
 		/**
@@ -42,7 +101,6 @@ public class MemberDao {
 
 		try {
 			// connect to DB
-			currentCon = DbUtil.getConnection();
 			stmt = currentCon.createStatement();
 			rs = stmt.executeQuery(searchQuery);
 			boolean more = rs.next();

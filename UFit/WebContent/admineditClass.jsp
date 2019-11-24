@@ -27,7 +27,7 @@
 </head>
 <body>
 
-	<%@ include file="navbar_loggedin.jsp"%>
+	<%@ include file="admin_navbar_loggedin.jsp"%>
 
 	
 
