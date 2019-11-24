@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libraryInfos>
+<libraryInfo home="S:\Courses\MIE350\jdk1.6.0_38-32bit\jre" version="1.6.0_38">
+<bootpath>
+<entry path="S:\Courses\MIE350\jdk1.6.0_38-32bit\jre\lib\resources.jar"/>
+<entry path="S:\Courses\MIE350\jdk1.6.0_38-32bit\jre\lib\rt.jar"/>
+<entry path="S:\Courses\MIE350\jdk1.6.0_38-32bit\jre\lib\sunrsasign.jar"/>
+<entry path="S:\Courses\MIE350\jdk1.6.0_38-32bit\jre\lib\jsse.jar"/>
+<entry path="S:\Courses\MIE350\jdk1.6.0_38-32bit\jre\lib\jce.jar"/>
+<entry path="S:\Courses\MIE350\jdk1.6.0_38-32bit\jre\lib\charsets.jar"/>
+<entry path="S:\Courses\MIE350\jdk1.6.0_38-32bit\jre\lib\modules\jdk.boot.jar"/>
+<entry path="S:\Courses\MIE350\jdk1.6.0_38-32bit\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="S:\Courses\MIE350\jdk1.6.0_38-32bit\jre\lib\ext"/>
+<entry path="C:\Windows\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="S:\Courses\MIE350\jdk1.6.0_38-32bit\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="S:\Courses\MIE350\jdk1.6.0_38-32bit" version="1.6.0_38">
+<bootpath>
+<entry path="S:\Courses\MIE350\jdk1.6.0_38-32bit\jre\lib\resources.jar"/>
+<entry path="S:\Courses\MIE350\jdk1.6.0_38-32bit\jre\lib\rt.jar"/>
+<entry path="S:\Courses\MIE350\jdk1.6.0_38-32bit\jre\lib\sunrsasign.jar"/>
+<entry path="S:\Courses\MIE350\jdk1.6.0_38-32bit\jre\lib\jsse.jar"/>
+<entry path="S:\Courses\MIE350\jdk1.6.0_38-32bit\jre\lib\jce.jar"/>
+<entry path="S:\Courses\MIE350\jdk1.6.0_38-32bit\jre\lib\charsets.jar"/>
+<entry path="S:\Courses\MIE350\jdk1.6.0_38-32bit\jre\lib\modules\jdk.boot.jar"/>
+<entry path="S:\Courses\MIE350\jdk1.6.0_38-32bit\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="S:\Courses\MIE350\jdk1.6.0_38-32bit\jre\lib\ext"/>
+<entry path="C:\Windows\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="S:\Courses\MIE350\jdk1.6.0_38-32bit\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+</libraryInfos>
