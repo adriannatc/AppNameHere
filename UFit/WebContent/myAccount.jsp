@@ -32,6 +32,8 @@
 		String username = (String) session.getAttribute("username");
 		String firstname = (String) session.getAttribute("firstname");
 		String lastname = (String) session.getAttribute("lastname");
+		String email = (String) session.getAttribute("email");
+		String password = (String) session.getAttribute("password");
 	%>
 
 <body>
@@ -42,12 +44,18 @@
   <img src="john.PNG" alt="John" style="width:10%" >
 	<h4> .</h4> 
   <h1>                        Welcome <%=firstname%>, here are your chosen classes!</h1>
-  <p class="title"><%=firstname %> <%=lastname %></p>
   
+  Account info:<br>
+  First Name: <%=firstname %><br>
+  Last Name: <%=lastname %><br>
+  Username: <%= username %><br>
+  Password: <%=password %>
+  Email: <%= email %><br>
   
-  <td align="center"><a class="btn btn-info" href="LoginController?action=accountEdit"/>Edit Account</a></td>
-  <td align="center"><a class="btn btn-danger" href="LoginController?action=accountDelete">Delete Account</a></td>
-</div>
+ 
+  
+  <td align="center"><a class="btn btn-info" href="myAccountEdit.jsp"/>Edit Account</a></td>
+ </div>
 
 Here are your classes!
 	<br>

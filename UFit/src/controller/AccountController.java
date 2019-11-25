@@ -14,6 +14,8 @@ import javax.servlet.http.HttpSession;
 import model.Class;
 import model.Member;
 import dao.MemberDao;
+import dao.ClassDao;
+
 
 /**
  * Servlet implementation class AccountController
@@ -23,7 +25,10 @@ public class AccountController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static String EDIT = "/myAccountEdit.jsp";
 	//private static String DELETE = "/myAccountDelete.jsp";
-	private static String ACCOUNT = "/myAccount.jsp";
+
+	//private static String myAccount = "/UFit/ClassController?action=memberList";
+	//private static String ACCOUNT = "/ClassController?action=memberList";
+	private static String myACCOUNT = "/myAccount.jsp";
 	private MemberDao dao;
 	
     /**
@@ -40,15 +45,12 @@ public class AccountController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String forward = "";
-		String action = request.getParameter("action");
 		HttpSession session = request.getSession(true);
-		Member member = (Member) session.getAttribute("currentSessionUser");
-	if(action.equalsIgnoreCase("accountEdit")){
-		forward = EDIT;
-		request.setAttribute("member", member);
-	}else {
-		forward = ACCOUNT;
-	}
+		
+		ClassDao classdoa = new ClassDao();
+		request.setAttribute("myclasses",classdoa.getMyClasses((Integer) session.getAttribute("memberid")));
+		forward = myACCOUNT;
+	
 
 	RequestDispatcher view = request.getRequestDispatcher(forward);
 	view.forward(request, response);
@@ -59,33 +61,39 @@ public class AccountController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-
-		/**
-		 * This method retrieves all of the information entered in the form on
-		 * signup.jsp
-		 */
+		HttpSession session = request.getSession(true);
+	//	Member member1 = (Member) session.getAttribute("currentSessionUser");
+		int memberid = (Integer) session.getAttribute("memberid");
+		System.out.println("doPost: ");
+		System.out.println(memberid);
+		System.out.println("fn: "+request.getParameter("firstName"));
+		System.out.println("ln: "+request.getParameter("lastName"));
+		System.out.println("em: "+request.getParameter("email"));
+		System.out.println("pw: "+request.getParameter("password"));
+		
 		Member member = new Member();
+		member.setid(memberid);
 		member.setFirstName(request.getParameter("firstName"));
 		member.setLastName(request.getParameter("lastName"));
 		member.setEmail(request.getParameter("email"));
-		member.setUsername(request.getParameter("username"));
 		member.setPassword(request.getParameter("password"));
-		String memberid = request.getParameter("memberid");
+		//String memberid = (String) session.getAttribute("memberid");
 		
-		if (memberid == null || memberid.isEmpty()) {
-			dao.addMember(member);
-		} else {
-			/**
-			 * Otherwise, if the field is already filled (this occurs when the
-			 * user is trying to Edit A Member), then the member's information
-			 * will be updated accordingly.
-			 */
-			member.setid(Integer.parseInt(memberid));
-			dao.updateMember(member);
-		}
-		/**
-		 * Once the members has been added or updated
-		 */
-		}
+		//member.setid(Integer.parseInt(memberid));
+		//System.out.println("\nMember: " +memberid);
+		dao.updateMember(member);
+		
+		session.setAttribute("currentSessionUser",member);
+		session.setAttribute("memberid", memberid);
+		session.setAttribute("firstname", request.getParameter("firstName"));
+		session.setAttribute("lastname", request.getParameter("lastName"));
+		session.setAttribute("email", request.getParameter("email"));
+		session.setAttribute("password", request.getParameter("password"));
+		ClassDao classdoa = new ClassDao();
+		request.setAttribute("myclasses",classdoa.getMyClasses((Integer) session.getAttribute("memberid")));
+		RequestDispatcher view = request
+				.getRequestDispatcher(myACCOUNT);
+		view.forward(request, response);
+	}
 
 }

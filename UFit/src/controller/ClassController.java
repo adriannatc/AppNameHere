@@ -104,13 +104,17 @@ public class ClassController extends HttpServlet {
 			request.setAttribute("myclasses", dao.getMyClasses(memberId));
 		}else if(action.equalsIgnoreCase("memberList")){
 			forward = LIST_MY_CLASSES;
+
+			System.out.println("went into class clontroller Memberlist");
+			
 			int memberId = (Integer) session.getAttribute("memberid");
 			request.setAttribute("myclasses", dao.getMyClasses(memberId));
 		}else if(action.equalsIgnoreCase("gclasslist")){
 			request.setAttribute("gclasses", dao.getAllClasses());
 			forward = LIST_GCLASSES;
 		}else {
-			forward = INSERT;
+			System.out.println("went into class clontroller");
+			forward = LIST_MY_CLASSES;
 		}
 
 		RequestDispatcher view = request.getRequestDispatcher(forward);

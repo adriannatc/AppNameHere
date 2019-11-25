@@ -32,7 +32,7 @@ public class MemberDao {
 	
 
 	
-	public void addMember(Member member) {
+	public void addMember(Member member)  {
 		/** edit for the member method
 		 * 
 		 */
@@ -50,27 +50,28 @@ public class MemberDao {
 
 			preparedStatement.executeUpdate();
 
-		
+			System.out.println("successful update");
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
 	}
 	
-	public void updateMember(Member member) {
+	public void updateMember(Member member)   {
 		/**
 		 * This method updates a gclass's information into the database.
 		 */
 		
-		System.out.println("*****update Class: "+member.getid());
+		System.out.println("*****update Member: "+member.getid());
 		try {
 			PreparedStatement preparedStatement = currentCon
-					.prepareStatement("update members set FirstName=?, LastName=?, Email=?"
+					.prepareStatement("update members set FirstName=?, LastName=?, Email=?, Password=?"
 							+ " where memberid=?");
 			// Parameters start with 1
 			preparedStatement.setString(1, member.getFirstName());
 			preparedStatement.setString(2, member.getLastName());
 			preparedStatement.setString(3, member.getEmail());
+			preparedStatement.setString(4, member.getPassword());
 			preparedStatement.setInt(5, member.getid());
 			preparedStatement.executeUpdate();
 
@@ -124,9 +125,10 @@ public class MemberDao {
 				String firstName = rs.getString("FirstName");
 				String lastName = rs.getString("LastName");
 				int memberid = Integer.parseInt(rs.getString("MemberID"));
-
+				String email = rs.getString("Email");
 				member.setFirstName(firstName);
 				member.setLastName(lastName);
+				member.setEmail(email);
 				System.out.println("MEMBER DAO: "+ memberid);
 				member.setid(memberid);
 				member.setValid(true);

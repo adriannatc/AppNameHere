@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import org.hsqldb.HsqlException;
 
 import net.ucanaccess.jdbc.UcanaccessSQLException;
 
@@ -30,8 +33,10 @@ public class LoginController extends HttpServlet {
 	private MemberDao dao;
 
 	private static final long serialVersionUID = 1L;
-	private static String HOME = "/index.jsp";
+	private static String myAccount = "/UFit/ClassController?action=memberList";
 	private static String invalidUsername = "/invalidUsername.jsp";
+	private static String accountCreated = "/accountCreated.jsp";
+	
 	
 	public LoginController() {
 	    super();
@@ -66,6 +71,9 @@ public class LoginController extends HttpServlet {
 				session.setAttribute("firstname", member.getFirstName());
 				session.setAttribute("lastname", member.getLastName());
 				session.setAttribute("memberid", member.getid());
+				session.setAttribute("email", member.getEmail());
+				session.setAttribute("password", member.getPassword());
+				
 				/**
 				 * Redirect to the members-only home page.
 				 */
@@ -106,31 +114,39 @@ public class LoginController extends HttpServlet {
 		 * signup.jsp
 		 */
 		Member member = new Member();
+
+	//	HttpSession session = request.getSession(true);
 		member.setFirstName(request.getParameter("firstName"));
 		member.setLastName(request.getParameter("lastName"));
 		member.setEmail(request.getParameter("email"));
 		member.setUsername(request.getParameter("username"));
 		member.setPassword(request.getParameter("password"));
 		String memberid = request.getParameter("memberid");
+		//String memberid = (String) session.getAttribute("memberid");
 		
 		if (memberid == null || memberid.isEmpty()) {
-			try{
+			//try{
 				dao.addMember(member);
-			}catch(SQLException e){
-				forward =invalidUsername;
-			}
+			//}catch(HsqlException e){
+				//System.out.println("exception occured");
+				//forward =invalidUsername;
+			//	e.getStackTrace();
+//			}catch(SQLException e){
+//				e.getStackTrace();
 			
-		} else {
-			/**
-			 * Otherwise, if the field is already filled (this occurs when the
-			 * user is trying to Edit A Member), then the member's information
-			 * will be updated accordingly.
-			 */
-			member.setid(Integer.parseInt(memberid));
-			System.out.println("\nMember: " +memberid);
-			dao.updateMember(member);
-			forward = HOME;
+				forward = accountCreated;
 		}
+//		} else {
+//			/**
+//			 * Otherwise, if the field is already filled (this occurs when the
+//			 * user is trying to Edit A Member), then the member's information
+//			 * will be updated accordingly.
+//			 */
+//			member.setid(Integer.parseInt(memberid));
+//			System.out.println("\nMember: " +memberid);
+//			dao.updateMember(member);
+//			forward = myAccount;
+//		}
 		/**
 		 * Once the members has been added or updated
 		 */
