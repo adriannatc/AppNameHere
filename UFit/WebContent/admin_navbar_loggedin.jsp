@@ -1,3 +1,5 @@
+
+
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
@@ -11,10 +13,8 @@
     </div>
     <div id="navbar" class="collapse navbar-collapse">
      			 <ul class="nav navbar-nav">
-      			 <!-- <li><a href="#team">Team</a></li> -->
-				<!-- li><a href="about.jsp">About</a></li -->
 		        <li><a href="/UFit/ClassController?action=listClassAdmin">Edit Classes</a></li>
-		        
+				
 				</ul>
 			<!-- The following code can be added to include a Login button to the right-hand side of the navbar-->
 			<ul class="nav navbar-nav navbar-right">
@@ -24,3 +24,4 @@
 		</div>
 	</div>
 </nav>
+

@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<%@ include file="navbar.jsp"%>
+<%@ include file="navbar_loggedin.jsp"%>
 
  <img style="margin-top:70px; margin-left:450px" src="https://i.imgur.com/fyOULjB.png" height="144" width="297"></a>
 

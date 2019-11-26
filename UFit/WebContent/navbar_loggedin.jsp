@@ -14,7 +14,7 @@
      			 <ul class="nav navbar-nav">
       			<!-- <li><a href="about_loggedin.jsp">About and Team</a></li> -->
 				<!-- li><a href="about.jsp">About</a></li -->
-		        <li><a href="classes.jsp">Classes</a></li>
+		        <li><a href="classesDescription_loggedin.jsp">Our Classes</a></li>
 		        <li><a href="/UFit/ClassController?action=GClassList">Search A Class</a></li>
 		  	    <li><a href="/UFit/ClassController?action=memberList">My Account</a></li>
 				

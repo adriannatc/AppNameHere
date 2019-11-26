@@ -32,13 +32,13 @@ public class MemberDao {
 	
 
 	
-	public void addMember(Member member)  {
+	public void addMember(Member member) throws SQLException {
 		/** edit for the member method
 		 * 
 		 */
 		
 		System.out.println("in add Member class");
-		try {
+		//try {
 			PreparedStatement preparedStatement = currentCon
 			.prepareStatement("insert into members(FirstName,LastName,Email,Username,Password) values (?, ?, ?, ?, ?)");
 			// Parameters start with 1
@@ -51,9 +51,9 @@ public class MemberDao {
 			preparedStatement.executeUpdate();
 
 			System.out.println("successful update");
-		}catch (SQLException e) {
-			e.printStackTrace();
-		}
+//		}catch (SQLException e) {
+//			e.printStackTrace();
+//		}
 		
 	}
 	

@@ -36,6 +36,8 @@ public class LoginController extends HttpServlet {
 	private static String myAccount = "/UFit/ClassController?action=memberList";
 	private static String invalidUsername = "/invalidUsername.jsp";
 	private static String accountCreated = "/accountCreated.jsp";
+
+	private static String invalidInputs = "/invalidInputs.jsp";
 	
 	
 	public LoginController() {
@@ -122,31 +124,28 @@ public class LoginController extends HttpServlet {
 		member.setUsername(request.getParameter("username"));
 		member.setPassword(request.getParameter("password"));
 		String memberid = request.getParameter("memberid");
+		String firstName = request.getParameter("firstName");
+		String lastName =request.getParameter("lastName");
+		String email =request.getParameter("email");
+		String username=request.getParameter("username");
+		String password = request.getParameter("password");
+		
 		//String memberid = (String) session.getAttribute("memberid");
 		
-		if (memberid == null || memberid.isEmpty()) {
-			//try{
-				dao.addMember(member);
-			//}catch(HsqlException e){
-				//System.out.println("exception occured");
-				//forward =invalidUsername;
-			//	e.getStackTrace();
-//			}catch(SQLException e){
-//				e.getStackTrace();
-			
-				forward = accountCreated;
+		if(isValid(firstName)||isValid(lastName)||isValid(email)|| isValid(username)||isValid(password)){
+			forward =invalidInputs;
 		}
-//		} else {
-//			/**
-//			 * Otherwise, if the field is already filled (this occurs when the
-//			 * user is trying to Edit A Member), then the member's information
-//			 * will be updated accordingly.
-//			 */
-//			member.setid(Integer.parseInt(memberid));
-//			System.out.println("\nMember: " +memberid);
-//			dao.updateMember(member);
-//			forward = myAccount;
-//		}
+		if (memberid == null || memberid.isEmpty()) {
+			try{
+				dao.addMember(member);
+				forward = accountCreated;
+			}catch(SQLException e){
+				System.out.println("exception occured");
+				forward =invalidUsername;
+			}
+			
+				
+		}
 		/**
 		 * Once the members has been added or updated
 		 */
@@ -154,6 +153,11 @@ public class LoginController extends HttpServlet {
 				.getRequestDispatcher(forward);
 		view.forward(request, response);
 	}
-	
+	public static boolean isValid(
+			   final String string)
+			{
+			   return string != null && !string.isEmpty() && !string.trim().isEmpty();
+	}
 
 }
+

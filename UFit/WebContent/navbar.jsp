@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+ <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -7,18 +7,17 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.jsp">uFIT</a>
+      <a class="navbar-brand" href="index.jsp">Home</a>
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-      <li><a href="about.jsp">About and Team</a></li>
-       <!-- <li><a href="classes.html">Classes</a></li> --> 
-      <!-- <li><a href="#contact">My Account</a></li> -->  
+        <li><a href="about.jsp">About</a></li>
+        <li><a href="classesDescription.jsp">Our Classes</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="signup.jsp">Signup  <i class="fa fa-user-plus"></i></a></li>
-        <li><a href="login.jsp">Login  <i class="fa fa-user"></i></a></li>
-         <li><a href="Adminlogin.jsp">Admin Login  <i class="fa fa-user"></i></a></li>
+        <li><a href="signup.jsp">Sign-up  <i class="fa fa-user-plus"></i></a></li>
+        <li><a href="login.jsp">Member Sign-in  <i class="fa fa-user"></i></a></li>
+        <li><a href="Adminlogin.jsp">Admin Sign-in  <i class="fa fa-user"></i></a></li>
       </ul>
     </div>
   </div>

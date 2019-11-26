@@ -3,92 +3,94 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
-<html lang="en">
+<html>
 <head>
-<title>uFIt - Search Classes</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<title>Search Classes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Maven+Pro:400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/app.css">
+</head>
 
-<!-- Date Picker Javascript -->
-<!-- https://jqueryui.com/datepicker/ -->
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<style>
+* {
+  box-sizing: border-box;
+}
 
-<link rel="stylesheet" type="text/css" href="css/mystyle.css">
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myTable {
+  border-collapse: collapse;
+  width: 10%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+#myTable th, #myTable td {
+  text-align: left;
+  padding: 12px;
+}
+
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
+}
+</style>
 </head>
 <body>
 
-	<%@ include file="navbar_loggedin.jsp"%>
 
+<%@ include file="navbar_loggedin.jsp"%>
 
-	<div class="container-fluid text-center">
-		<div class="row content">
-			<div class="col-sm-2 sidenav">
-				<!-- You can put left sidebar links here if you want to. -->
-			</div>
-			<div class="col-sm-8 text-left">
-				<h2> Classes</h2>
-				<h1>Search A Class</h1>
+<a><img style="margin-top:70px; margin-left:450px" src="https://i.imgur.com/fyOULjB.png" height="144" width="297"></a>
+<div>
+<form method="POST" action='SearchController' name="frmAddUser">
+ <input style="width:20%; margin-top:20px; margin-left:187px; border=0" align="center" type="text" id="myInput" placeholder="Search class" type="text" name="keyword"
+							value="<c:out value="${gclass.searchword}" />">
+  <input type="submit" class="button2" value="Search" />
+  </form>
+  <p style="margin-left:187px;">Type in any keyword to search for class information (category, level, date) that matches the keyword</p>
+</div>
 
-				Type in any keyword to search for class information (category,
-				level, location, date or time) that matches the keyword. <Br />
-				<Br />
-				<center>
-					<form method="POST" action='SearchController' name="frmAddUser">
-						Keyword: <input type="text" name="keyword"
-							value="<c:out value="${gclass.searchword}" />"><input
-							type="submit" class="btn btn-info" value="Submit" />
-					</form>
-						<table border=1 class="sortable">
-						<thead>
-							<tr>
-								<th>Class Id</th>
-								<th>Category</th>
-								<th>Level</th>
-								<th>Location</th>
-								<th>Date</th>
-								<th colspan=2>Action</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach items="${gclasses}" var="gclass">
-								<tr>
-									<td align="center"><c:out
-											value="${gclass.getClassid()}" /></td>
-									<td align="center"><c:out
-											value="${gclass.getCategory()}" /></td>
-									<td align="center"><c:out value="${gclass.getLevel()}" /></td>
-									<td align="center"><c:out value="${gclass.getLocation()}" /></td>
-									<td align="center"><fmt:formatDate pattern="yyyy-MMM-dd"
-											value="${gclass.getGdate()}" /></td>
-									<td align="center"><a class="btn btn-primary"
+<table id="myTable" style="width:70%; margin-top:20px; margin-left:10px; border=0" align="center">
+  <tr class="header">
+    <th style="width:15%;">Category</th>
+    <th style="width:15%;">Level</th>
+    <th style="width:40%;">Location</th>
+    <th style="width:20%;">Date</th>
+    <th style="width:5%;">Action</th>
+  </tr>
+   <c:forEach items="${gclasses}" var="gclass">
+  <tr>
+								<td align="center"><c:out value="${gclass.getCategory()}" /></td>
+								<td align="center"><c:out value="${gclass.getLevel()}" /></td>
+								<td align="center"><c:out value="${gclass.getLocation()}" /></td>
+								<td align="center"><fmt:formatDate pattern="yyyy-MMM-dd"
+										value="${gclass.getGdate()}" /></td>
+								<td align="center"><a class="button"
 									href="ClassController?action=memberAdd&gclassId=<c:out value="${gclass.getClassid()}"/>">Add</a></td>
-								
-									</tr>
-							</c:forEach>
-						</tbody>
-					</table>
-				</center>
-
-			</div>
-			<div class="col-sm-2 sidenav">
-				<!-- You can put right sidebar links here if you want to. -->
-			</div>
-		</div>
-	</div>
-
+							
+	</tr>
+	</c:forEach>
+  
+  
+</table>
 
 
 </body>
 </html>
-

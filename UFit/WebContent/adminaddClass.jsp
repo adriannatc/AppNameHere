@@ -42,6 +42,7 @@
 		<div class="row content">
 			<%@ include file="sidebar_loggedin.jsp"%>
 			<div class="col-sm-8 text-left">
+			<h4>.</h4>
 				<h1>Add A Class</h1>
 
 				<script>
@@ -57,12 +58,13 @@
 						name="classid" value="<c:out value="${gclass.classid}" />"><br>
 					Category: <input type="text" name="category"
 						value="<c:out value="${gclass.category}" />"><br>
+					Level: <input type="text" name="level"
+						value="<c:out value="${gclass.level}" />"><br> 
 					Location : <input type="text" name="location"
 						value="<c:out value="${gclass.location}" />"><br>Date
 					(MM/dd/yyyy): <input type="text" name="gdate"
 						value="<fmt:formatDate pattern="MM/dd/yyyy" value="${gclass.gdate}" />"><br>
-					Level: <input type="text" name="level"
-						value="<c:out value="${gclass.level}" />"><br> <br>
+					<br>
 					<input type="submit" class="btn btn-info" value="Submit" />
 				</form>
 
@@ -73,7 +75,6 @@
 		</div>
 	</div>
 
-	<%@ include file="footer.jsp"%>
 
 
 </body>

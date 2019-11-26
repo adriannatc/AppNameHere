@@ -4,7 +4,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+
+<html lang="en">
 <head>
   <title>My Account</title>
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -39,7 +40,7 @@
   background-color: #f1f1f1;
 }
 </style>
-<%
+	<%
 		Member member = (Member) session.getAttribute("currentSessionUser");
 
 		String username = (String) session.getAttribute("username");
@@ -48,12 +49,13 @@
 		String email = (String) session.getAttribute("email");
 		String password = (String) session.getAttribute("password");
 	%>
-<body>
-<%@ include file="navbar_loggedin.jsp"%>
 
-  <div class="centre1">
-      <div class="content">
-        <a><img src="https://myrealdomain.com/images/empty-profile-picture.png" alt="circle-cropped-5" border="0" width="100" height="100"></a>
+<body>
+
+	<%@ include file="navbar_loggedin.jsp"%>
+<div class="centre1">	
+      <div class="content">	
+        <a><img src="https://myrealdomain.com/images/empty-profile-picture.png" alt="circle-cropped-5" border="0" width="100" height="100"></a>	
         <h3><strong>Hello, <%=firstname%> </strong></h3>
   Account info:<br>
   First Name: <%=firstname %><br>
@@ -61,21 +63,12 @@
   Username: <%= username %><br>
   Password: <%=password %><br>
   Email: <%= email %><br>
-        
- <td align="center"><a class="btn btn-info" href="myAccountEdit.jsp"/>Edit Account</a></td>
-      </div>
-  </div>
-
-
-<div class="container1">
-  <div class="row">
-    <div class="col-lg-3">
-      <div class="content">
-        <img src="https://www.publicdomainpictures.net/pictures/30000/velka/plain-white-background.jpg" height="10" width="50">
-        </div>
-    </div>
-  </div>
+  
+ 
+  <br>
+  <td align="center"><a class="button" href="myAccountEdit.jsp"/>Edit Account</a></td>
  </div>
+
 <div class="container1">
   <div class="row">
     <div class="col-lg-12">
@@ -119,7 +112,6 @@
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
 
 </body>
 </html>

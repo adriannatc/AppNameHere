@@ -34,7 +34,7 @@ public class ClassController extends HttpServlet {
 	private static String EDIT = "/admineditClass.jsp";
 	private static String LIST_CLASS_PUBLIC = "/listClassPublic.jsp";
 	private static String LIST_CLASS_ADMIN = "/adminlistClass.jsp";
-	private static String LIST_MY_CLASSES = "/myAccount.jsp";
+	private static String LIST_MY_CLASSES = "/myAccountOLD.jsp";
 	private static String SEARCH_CLASS = "/searchClassResult.jsp";
 	private static String LIST_GCLASSES = "/searchClass.jsp";
 	

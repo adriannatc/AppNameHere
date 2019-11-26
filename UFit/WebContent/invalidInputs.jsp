@@ -18,15 +18,11 @@
 			</div>
 			<div class="col-sm-8 text-left">
 
-				<h1>Invalid Login</h1>
-				
-
-				Please double-check your credentials and log in again.
-
+				<h1>FAILED to create an account: Invalid Inputs</h1>
+				Please fill in all fields. No empty spaces.
 			</div>
 			
 		</div>
-	</div>
 
 	
 

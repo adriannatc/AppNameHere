@@ -67,6 +67,11 @@ public class ClassDao {
 			preparedStatement.setInt(1, gclassid);
 			preparedStatement.executeUpdate();
 
+			PreparedStatement preparedStatement2 = connection
+					.prepareStatement("delete from myClasses where classid=?");
+			// Parameters start with 1
+			preparedStatement2.setInt(1, gclassid);
+			preparedStatement2.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

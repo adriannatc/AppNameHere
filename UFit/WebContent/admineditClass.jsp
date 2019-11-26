@@ -6,7 +6,7 @@
 
 <html lang="en">
 <head>
-<title>MIE350 Sample Web App - Edit A Student</title>
+<title>UFit - Edit A Class</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -33,9 +33,10 @@
 
 	<div class="container-fluid text-center">
 		<div class="row content">
-			<%@ include file="sidebar_loggedin.jsp"%>
+		<%@ include file="sidebar_loggedin.jsp"%>
 			<div class="col-sm-8 text-left">
-				<h1>Edit A Student</h1>
+			<h4>.</h4>
+				<h1>Edit A Class</h1>
 
 				<script>
 					$(function() {
@@ -46,17 +47,18 @@
 				<br>
 
 				<form method="POST" action='ClassController' name="frmAddUser">
-					Class ID*: <input type="text" readonly="readonly"
+					Class ID* (Automated): <input type="text" readonly="readonly"
 						name="classid" value="<c:out value="${gclass.classid}" />"><br>
-					First Name: <input type="text" name="category"
+					Category: <input type="text" name="category"
 						value="<c:out value="${gclass.category}" />"><br>
-					Last Name : <input type="text" name="location"
-						value="<c:out value="${gclass.location}" />"><br>DOB
+						Level: <input type="text" name="level"
+						value="<c:out value="${gclass.level}" />"><br> <br>
+					Location : <input type="text" name="location"
+						value="<c:out value="${gclass.location}" />"><br>Date
 					(MM/dd/yyyy): <input type="text" name="gdate"
 						value="<fmt:formatDate pattern="MM/dd/yyyy" value="${gclass.gdate}" />"><br>
-					Email: <input type="text" name="level"
-						value="<c:out value="${gclass.level}" />"><br> <br>
-					<input type="submit" class="btn btn-info" value="Submit" />
+					
+					<input type="submit" class="btn btn-info" value="Submit New Class" />
 				</form>
 
 			</div>
@@ -65,8 +67,6 @@
 			</div>
 		</div>
 	</div>
-
-	<%@ include file="footer.jsp"%>
 
 
 </body>
