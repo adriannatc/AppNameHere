@@ -2,6 +2,7 @@ package controller;
 
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -29,6 +30,8 @@ public class AccountController extends HttpServlet {
 	//private static String myAccount = "/UFit/ClassController?action=memberList";
 	//private static String ACCOUNT = "/ClassController?action=memberList";
 	private static String myACCOUNT = "/myAccount.jsp";
+	private static String invalidInputs = "/invalidInputs.jsp";
+	
 	private MemberDao dao;
 	
     /**
@@ -77,11 +80,24 @@ public class AccountController extends HttpServlet {
 		member.setLastName(request.getParameter("lastName"));
 		member.setEmail(request.getParameter("email"));
 		member.setPassword(request.getParameter("password"));
+		
+		//String memberid = request.getParameter("memberid");
+		String firstName = request.getParameter("firstName");
+		String lastName =request.getParameter("lastName");
+		String email =request.getParameter("email");
+		String username=request.getParameter("username");
+		String password = request.getParameter("password");
+		
 		//String memberid = (String) session.getAttribute("memberid");
 		
-		//member.setid(Integer.parseInt(memberid));
-		//System.out.println("\nMember: " +memberid);
+		if(!isValid(firstName)||!isValid(lastName)||!isValid(email)|| !isValid(username)||!isValid(password)){
+			RequestDispatcher view = request
+					.getRequestDispatcher(invalidInputs);
+			view.forward(request, response);
+		}
+		try{
 		dao.updateMember(member);
+		
 		
 		session.setAttribute("currentSessionUser",member);
 		session.setAttribute("memberid", memberid);
@@ -94,6 +110,15 @@ public class AccountController extends HttpServlet {
 		RequestDispatcher view = request
 				.getRequestDispatcher(myACCOUNT);
 		view.forward(request, response);
+		}catch(SQLException e){
+			RequestDispatcher view = request
+					.getRequestDispatcher(invalidInputs);
+			view.forward(request, response);
+		}
 	}
-
+	public static boolean isValid(
+			   final String string)
+			{
+			   return string != null && !string.isEmpty() && !string.trim().isEmpty();
+	}
 }

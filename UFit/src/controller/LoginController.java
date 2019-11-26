@@ -132,7 +132,7 @@ public class LoginController extends HttpServlet {
 		
 		//String memberid = (String) session.getAttribute("memberid");
 		
-		if(isValid(firstName)||isValid(lastName)||isValid(email)|| isValid(username)||isValid(password)){
+		if(!isValid(firstName)||!isValid(lastName)||!isValid(email)|| !isValid(username)||!isValid(password)){
 			forward =invalidInputs;
 		}
 		if (memberid == null || memberid.isEmpty()) {

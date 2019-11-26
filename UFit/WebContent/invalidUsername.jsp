@@ -18,9 +18,10 @@
 			</div>
 			<div class="col-sm-8 text-left">
 
-					<h1>FAILED to create an account: Invalid Username</h1>
+					<h1>FAILED to create an account: Invalid Username or Inputs</h1>
 				
 				Username is already taken, please choose another username. 
+				Or, invalid inputs. Please fill in all fields. No empty spaces.
 			</div>
 			
 		</div>

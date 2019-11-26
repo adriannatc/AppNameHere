@@ -57,7 +57,7 @@ public class MemberDao {
 		
 	}
 	
-	public void updateMember(Member member)   {
+	public void updateMember(Member member) throws SQLException  {
 		/**
 		 * This method updates a gclass's information into the database.
 		 */
