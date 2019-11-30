@@ -132,9 +132,9 @@ public class LoginController extends HttpServlet {
 		
 		//String memberid = (String) session.getAttribute("memberid");
 		
-		if(!isValid(firstName)||!isValid(lastName)||!isValid(email)|| !isValid(username)||!isValid(password)){
-			forward =invalidInputs;
-		}
+		if(isValid(firstName)&&isValid(lastName)&&isValid(email)&&isValid(username)&&isValid(password)){
+			
+		
 		if (memberid == null || memberid.isEmpty()) {
 			try{
 				dao.addMember(member);
@@ -149,6 +149,9 @@ public class LoginController extends HttpServlet {
 		/**
 		 * Once the members has been added or updated
 		 */
+		}else{
+			forward =invalidUsername;
+		}
 		RequestDispatcher view = request
 				.getRequestDispatcher(forward);
 		view.forward(request, response);

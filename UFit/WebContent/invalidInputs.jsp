@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>InvalidInputs<a href="index.jsp"></a></title>
+	<title>InvalidInputs</a></title>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Maven+Pro:400&display=swap" rel="stylesheet">
@@ -18,7 +18,7 @@
 			</div>
 			<div class="col-sm-8 text-left">
 
-				<h1>FAILED to create an account: Invalid Inputs</h1>
+				<h1>FAILED to edit account</h1>
 				Please fill in all fields. No empty spaces.
 			</div>
 			

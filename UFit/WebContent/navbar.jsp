@@ -7,11 +7,10 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.jsp">Home</a>
+      <a class="navbar-brand" href="index.jsp">About</a>
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li><a href="about.jsp">About</a></li>
         <li><a href="classesDescription.jsp">Our Classes</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">

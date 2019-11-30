@@ -89,32 +89,50 @@ public class AccountController extends HttpServlet {
 		String password = request.getParameter("password");
 		
 		//String memberid = (String) session.getAttribute("memberid");
+		String forward ="";
+		System.out.println("---------------------------------------------------");
 		
-		if(!isValid(firstName)||!isValid(lastName)||!isValid(email)|| !isValid(username)||!isValid(password)){
-			RequestDispatcher view = request
-					.getRequestDispatcher(invalidInputs);
-			view.forward(request, response);
+		System.out.println(isValid(firstName));
+		System.out.println(isValid(lastName));
+		System.out.println(isValid(email));
+		System.out.println(isValid(username));
+		System.out.println(isValid(password));
+		System.out.println(!isValid(firstName)||!isValid(lastName)||!isValid(email)|| !isValid(username)||!isValid(password));
+		String string =lastName;
+		System.out.println("testing:");
+		System.out.println(string != null && !string.isEmpty() && !string.trim().isEmpty());
+		System.out.println("if");
+		System.out.println(isValid(firstName) && isValid(lastName)&& isValid(email)&& isValid(username)&&isValid(password));
+		
+		if(isValid(firstName) && isValid(lastName)&& isValid(email)&&isValid(password)){
+			
+		
+			try{
+				System.out.println("updating....");
+			dao.updateMember(member);
+			
+			
+			session.setAttribute("currentSessionUser",member);
+			session.setAttribute("memberid", memberid);
+			session.setAttribute("firstname", request.getParameter("firstName"));
+			session.setAttribute("lastname", request.getParameter("lastName"));
+			session.setAttribute("email", request.getParameter("email"));
+			session.setAttribute("password", request.getParameter("password"));
+			ClassDao classdoa = new ClassDao();
+			request.setAttribute("myclasses",classdoa.getMyClasses((Integer) session.getAttribute("memberid")));
+			forward = myACCOUNT;
+			}catch(SQLException e){
+				RequestDispatcher view = request
+						.getRequestDispatcher(invalidInputs);
+				view.forward(request, response);
+			}
+		}else{
+			forward=invalidInputs;
 		}
-		try{
-		dao.updateMember(member);
-		
-		
-		session.setAttribute("currentSessionUser",member);
-		session.setAttribute("memberid", memberid);
-		session.setAttribute("firstname", request.getParameter("firstName"));
-		session.setAttribute("lastname", request.getParameter("lastName"));
-		session.setAttribute("email", request.getParameter("email"));
-		session.setAttribute("password", request.getParameter("password"));
-		ClassDao classdoa = new ClassDao();
-		request.setAttribute("myclasses",classdoa.getMyClasses((Integer) session.getAttribute("memberid")));
 		RequestDispatcher view = request
-				.getRequestDispatcher(myACCOUNT);
+				.getRequestDispatcher(forward);
 		view.forward(request, response);
-		}catch(SQLException e){
-			RequestDispatcher view = request
-					.getRequestDispatcher(invalidInputs);
-			view.forward(request, response);
-		}
+		
 	}
 	public static boolean isValid(
 			   final String string)
