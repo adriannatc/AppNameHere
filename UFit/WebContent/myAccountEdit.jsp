@@ -7,11 +7,19 @@
 <head>
 <title>Edit My Account</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Maven+Pro:400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="css/app.css">
 </head>
+
+
+
+
+
+
+
 <%
 		Member member = (Member) session.getAttribute("currentSessionUser");
 		int memberid = (Integer) session.getAttribute("memberid");
@@ -25,11 +33,12 @@
 	<div class="container-fluid text-center">
 		<div class="row content">
 			<div class="col-sm-8 text-left">
-			<form method="POST" action='AccountController' name="frmEditUser">	 
-              <input type="text" readonly="readonly"
-						name="memberid" value="<c:out value="<%=memberid %>" />"><br>
-						<h4>.</h4>
-			<h2>Edit Account Info</h2> 
+			<form method="POST" action='AccountController' name="frmEditUser">	
+			<h2>Edit Account Info</h2>
+			<div class ="form-group">
+			  MemberID (Automated, cannot change): <input type="text" readonly="readonly"
+						name="memberid" value="<c:out value="<%=memberid %>" />"><br> 
+						 </div>
 			 <div class ="form-group">
                 FirstName: <input type = "text" name="firstName" value="<c:out value="<%=firstName %>"/>" >
               </div>

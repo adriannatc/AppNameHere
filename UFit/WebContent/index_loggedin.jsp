@@ -22,7 +22,27 @@
         <a><img src="https://i.imgur.com/fyOULjB.png" height="144" width="297"></a>
         <h3><strong>Discover University of Toronto's fitness classes</strong></h3>
         <img src="https://www.publicdomainpictures.net/pictures/30000/velka/plain-white-background.jpg" height="200" width="200">
+        
+        <h2>About UFit</h2>
+				<h4>Our website aims to provide users with the means of looking for a suitable gym and fitness class at a suitable location, from classes at on-campus fitness facilities to off-campus locations. 
+				
+				<ul>
+					<h3> Members can:</h3>
+					<li><b>Create</b> Member account</li>
+					<li><b>Add</b> classes to your class list</li>
+					<li><b>Delete</b> classes in your class list </li>
+					<li><b>Search</b> for classes in the class database</li>
+					<li><b>Log in and Out</b> of their account</li>
+					<h3> Admins and Gym Teachers can:</h3>
+					<li><b>Insert</b> class into class database</li>
+					<li><b>Remove</b> class from class database</li>
+					<li><b>Edit</b> class in class database </li>
+					<li><b>Log in and Out</b> of their account</li>
+					</h4>
+					<hr>
         <h2>The uFIT Team</h2>
+        The team is a group of seven Industrial Engineering Students at the University of Toronto. This website was created for an Information Systems course as a tool to develop a Dynamic Page website. 
+				
         <img src="https://i.imgur.com/E4A3vAl.png" height="356.5" width="580">
       </div>
     </div>
