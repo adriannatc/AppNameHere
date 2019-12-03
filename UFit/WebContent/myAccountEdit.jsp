@@ -30,31 +30,38 @@
 %>
 <body>
 	<%@ include file="navbar_loggedin.jsp"%>
-	<div class="container-fluid text-center">
-		<div class="row content">
-			<div class="col-sm-8 text-left">
+ <div class="container">
+ 	<div class="row">
+ 		<div class="col">
+ 			<div class="content">
+ 				<h1 style = "text-align: center">Edit Account</h1>
+ 				 <div style="width: 30%; margin: 25px auto;">
 			<form method="POST" action='AccountController' name="frmEditUser">	
-			<h2>Edit Account Info</h2>
+			
 			<div class ="form-group">
-			  MemberID (Automated, cannot change): <input type="text" readonly="readonly"
+			  MemberID* (Automated, cannot change): <input class = "form-control" type="text" readonly="readonly"
 						name="memberid" value="<c:out value="<%=memberid %>" />"><br> 
+						
 						 </div>
 			 <div class ="form-group">
-                FirstName: <input type = "text" name="firstName" value="<c:out value="<%=firstName %>"/>" >
+                FirstName: <input class = "form-control" type = "text" name="firstName" value="<c:out value="<%=firstName %>"/>" >
               </div>
               <div class ="form-group">
-                Last Name: <input type = "text" name="lastName" value="<c:out value="<%=lastName %>" />">
+                Last Name: <input class = "form-control" type = "text" name="lastName" value="<c:out value="<%=lastName %>" />">
               </div>
               <div class ="form-group">
-                Email: <input type = "text" name="email" value="<c:out value="<%=email %>" />">
+                Email: <input class = "form-control" type = "text" name="email" value="<c:out value="<%=email %>" />">
               </div>
               <div class ="form-group">
-                Password  <input type = "text" name="password" value="<c:out value="<%=password%>" />">
+                Password  <input class = "form-control" type = "text" name="password" value="<c:out value="<%=password%>" />">
               </div>
               <div class = "form-group">
               	<input type="submit" class="btn btn-lg btn-primary btn-block" value="Submit Changes" />
               </div>
             </form>	
+          
+            </div>
+            </div>
             </div>
 		</div>
 	</div>

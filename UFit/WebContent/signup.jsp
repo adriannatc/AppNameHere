@@ -23,6 +23,7 @@
  		<div class="col">
  			<div class="content">
  				<h1 style = "text-align: center">Sign-up</h1>
+ 				Please fill in all fields. No empty spaces.
  				 <div style="width: 30%; margin: 25px auto;">
 
             <form method="POST" action='LoginController' name="frmAddNewMember">

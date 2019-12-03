@@ -32,36 +32,42 @@
 
 	<%@ include file="admin_navbar_loggedin.jsp"%>
 
-	
-	<div class="container-fluid text-center">
-		<div class="row content">
-			<%@ include file="sidebar_loggedin.jsp"%>
-			<div class="col-sm-8 text-left">
-
-				<h1>
-					Welcome,
-					<%=firstname%>
-					<%=lastname%>!
-				</h1>
+	  <div class="centre1">
+      <div class="content">
+        <img src="https://myrealdomain.com/images/empty-profile-picture.png" alt="circle-cropped-5" border="0" width="100" height="100"></a>
+        <h3><strong>Hello, <%=firstname%> <%=lastname%></strong></h3>
+        <p><strong>Administrator-Only Features:</strong></p>
+        <p>Add class, Delete class, Search class information</p>
+      </div>
+    </div>
 
 
-				Welcome to the members-only page.
+<div class="container1">
+  <div class="row">
+    <div class="col-lg-3">
+      <div class="content">
+        <img src="https://www.publicdomainpictures.net/pictures/30000/velka/plain-white-background.jpg" height="10" width="50">
+        </div>
+    </div>
+  </div>
+ </div>
 
-				<h2>Admins-Only Features</h2>
-				Admin can do the following:
+<div class="container1">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="content">
+<p>You will be logged out after <strong>15 minutes</strong> of inactivity.</p>
+<p>The log-out button can be found on the top-right corner of the navigation bar.</p>
+      </div>
+    </div>
+  </div>
+ </div>
 
-				<ul>
-					<li><b>Add</b> classes to database</li>
-					<li><b>Delete</b> classes to database</li>
-					<li><b>Modify</b> class information in database</li>
-				</ul>
 
+ 
 
-			</div>
-		</div>
-	</div>
-
-	
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
+ <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 
 </body>

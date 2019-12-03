@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>uFIT<a href="index.jsp"></a></title>
+	<title>uFIT<a href="admin_index_loggedin.jsp"></a></title>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Maven+Pro:400&display=swap" rel="stylesheet">
@@ -11,8 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="css/app.css">
 </head>
 <body>
-<%@ include file="navbar_loggedin.jsp"%>
-
+<%@ include file="admin_navbar_loggedin.jsp"%>
 
 
  <div class="container">
@@ -52,7 +51,6 @@
 
  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
 
 </body>
 </html>

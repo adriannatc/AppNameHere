@@ -24,11 +24,12 @@
 
 	
 
-	<div class="container-fluid text-center">
-		<div class="row content">
-			<div class="col-sm-8 text-left">
-			<h4>.</h4>
-				<h1>Edit A Class</h1>
+	<div class="container">
+ 	<div class="row">
+ 		<div class="col">
+ 			<div class="content">
+ 				<h1 style = "text-align: center">Modify a Class</h1>
+ 				 <div style="width: 30%; margin: 25px auto;">
 
 				<script>
 					$(function() {
@@ -39,23 +40,25 @@
 				<br>
 
 				<form method="POST" action='ClassController' name="frmAddUser">
-					Class ID* (automated, cannot change): <input type="text" readonly="readonly"
+					Class ID* (automated, cannot change): <input class = "form-control" type="text" readonly="readonly"
 						name="classid" value="<c:out value="${gclass.classid}" />"><br>
-					Category: <input type="text" name="category"
+					Category: <input class = "form-control" type="text" name="category"
 						value="<c:out value="${gclass.category}" />"><br>
-						Level: <input type="text" name="level"
+						Level: <input class = "form-control" type="text" name="level"
 						value="<c:out value="${gclass.level}" />"><br> <br>
-					Location : <input type="text" name="location"
+					Location : <input class = "form-control" type="text" name="location"
 						value="<c:out value="${gclass.location}" />"><br>Date
-					(MM/dd/yyyy): <input type="text" name="gdate"
+					(MM/dd/yyyy): <input class = "form-control" type="text" name="gdate"
 						value="<fmt:formatDate pattern="MM/dd/yyyy" value="${gclass.gdate}" />"><br>
 					
-					<input type="submit" class="btn btn-info" value="Submit New Class" />
+					<input type="submit" class="btn btn-lg btn-primary btn-block" value="Submit Modified Class" />
 				</form>
 
 			</div>
 			
 		</div>
+	</div>
+	</div>
 	</div>
 
 

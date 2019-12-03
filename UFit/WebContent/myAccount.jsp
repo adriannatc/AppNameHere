@@ -91,7 +91,7 @@
 								<td align="center"><c:out value="${gclass.getLocation()}" /></td>
 								<td align="center"><fmt:formatDate pattern="yyyy-MMM-dd"
 										value="${gclass.getGdate()}" /></td>
-								<td align="center"><a class="btn btn-warning"
+								<td align="center"><a class="button1"
 									href="ClassController?action=memberDelete&gclassId=<c:out value="${gclass.getClassid()}"/>">Delete</a></td>
 							
 	</tr>

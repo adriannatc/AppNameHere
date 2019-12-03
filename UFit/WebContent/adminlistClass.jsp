@@ -13,6 +13,7 @@
   <link rel="stylesheet" type="text/css" href="css/app.css">
 </head>
 
+
 <style>
 * {
   box-sizing: border-box;
@@ -66,6 +67,7 @@
 	%>
 <body>
 
+
 <%@ include file="admin_navbar_loggedin.jsp"%>
 
 <img style="margin-top:70px; margin-left:450px" src="https://i.imgur.com/fyOULjB.png" height="144" width="297"></a>
@@ -77,6 +79,8 @@
 					A New Class</a> <br /> <br /> The following <B><c:out
 						value="${gclasses.size()}" /> classes</B> are in your database: <br>
 				<br>
+
+
 <table id="myTable" style="width:70%; margin-top:20px; margin-left:10px; border=0" align="center">
   <tr class="header">
     <th style="width:15%;">Category</th>
@@ -95,9 +99,9 @@
 								<td align="center"><c:out value="${gclass.getLocation()}" /></td>
 								<td align="center"><fmt:formatDate pattern="yyyy-MMM-dd"
 										value="${gclass.getGdate()}" /></td>
-								<td align="center"><a class="btn btn-warning"
+								<td align="center"><a class="button3"
 									href="ClassController?action=edit&gclassId=<c:out value="${gclass.getClassid()}"/>">Modify</a></td>
-								<td align="center"><a class="btn btn-danger"
+								<td align="center"><a class="button1"
 									href="ClassController?action=delete&gclassId=<c:out value="${gclass.getClassid()}"/>">Delete</a></td>
 							</tr>
 						</c:forEach>
